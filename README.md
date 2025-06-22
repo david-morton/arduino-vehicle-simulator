@@ -1,6 +1,6 @@
 # CAN Simulator Project
 
-This project simulates BMW and Nissan CAN traffic using two MCP2515 CAN bus modules and an Arduino Uno R4 (or compatible). It is structured for scalability and is compatible with the architecture of the main "Arduino CAN Plus Boost Control" project.
+This project simulates BMW and Nissan CAN traffic using two MCP2515 CAN bus modules and an Arduino Mega 2560 R3. It is structured for scalability and is compatible with the architecture of the main "Arduino CAN Plus Boost Control" project.
 
 ## Features
 

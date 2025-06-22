@@ -1,6 +1,8 @@
-#include "can_sim_nissan.h"
 #include <Arduino.h>
 #include <mcp2515_can.h>
+
+#include "can_sim_nissan.h"
+#include "debug_logging.h"
 
 #define CS_PIN_NISSAN 9
 #define CAN_ID_NISSAN_TEMP 0x545
@@ -10,9 +12,9 @@ mcp2515_can CAN_NISSAN(CS_PIN_NISSAN);
 
 void setupCanSimNissan() {
   if (CAN_NISSAN.begin(CAN_500KBPS) == CAN_OK) {
-    Serial.println("[CAN_NISSAN] Ready");
+    DEBUG_GENERAL("[CAN_NISSAN] Init OK");
   } else {
-    Serial.println("[CAN_NISSAN] Init failed");
+    DEBUG_ERROR("[CAN_NISSAN] Init failed");
   }
 }
 
