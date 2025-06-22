@@ -1,0 +1,18 @@
+{
+  "editor.defaultFormatter": "xaver.clang-format",
+  "files.trimTrailingWhitespace": true,
+  "editor.insertSpaces": true,
+  "editor.autoIndent": "full",
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "optional": "cpp",
+    "istream": "cpp",
+    "ostream": "cpp",
+    "system_error": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp"
+  }
+}
