@@ -7,9 +7,8 @@ extern ptScheduler taskBmwWheel;
 extern ptScheduler taskBmwNoise;
 extern ptScheduler taskNissanTemp;
 extern ptScheduler taskNissanNoise;
-
-// Setup (currently empty but reserved for future use)
-void setupTaskScheduler();
+extern ptScheduler rpmAnalogTask;
+extern ptScheduler speedAnalogTask;
 
 // Call all scheduled tasks
 void runAllScheduledTasks();

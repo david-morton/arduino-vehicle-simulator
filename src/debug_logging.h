@@ -6,10 +6,12 @@
 // Debug category flags (defined in main_simulator.cpp)
 // ======================================================================
 
+extern bool debugCanReceive;
+extern bool debugCanSend;
 extern bool debugError;
 extern bool debugGeneral;
-extern bool debugCanSend;
-extern bool debugCanReceive;
+extern bool debugSensors;
+extern bool debugPerformance;
 
 // ======================================================================
 // Timestamp printer
@@ -52,3 +54,11 @@ inline void printDebugTimestamp() {
 #define DEBUG_GENERAL(fmt, ...) _DEBUG_PRINTF(debugGeneral, "GENERAL", fmt, ##__VA_ARGS__)
 #define DEBUG_CAN_SEND(fmt, ...) _DEBUG_PRINTF(debugCanSend, "CAN SEND", fmt, ##__VA_ARGS__)
 #define DEBUG_CAN_RECEIVE(fmt, ...) _DEBUG_PRINTF(debugCanReceive, "CAN RECEIVE", fmt, ##__VA_ARGS__)
+#define DEBUG_SENSORS(fmt, ...) _DEBUG_PRINTF(debugSensors, "SENSORS", fmt, ##__VA_ARGS__)
+#define DEBUG_PERFORMANCE(fmt, ...) _DEBUG_PRINTF(debugPerformance, "PERFORMANCE", fmt, ##__VA_ARGS__)
+
+/* ======================================================================
+   FUNCTION PROTOTYPES
+   ====================================================================== */
+
+void reportArduinoLoopRate(unsigned long *loopCounter);

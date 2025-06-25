@@ -1,10 +1,10 @@
 #include <Arduino.h>
 #include <mcp2515_can.h>
 
+#include "../pin_assignments.h"
 #include "can_sim_nissan.h"
 #include "debug_logging.h"
 
-#define CS_PIN_NISSAN 9
 #define CAN_ID_NISSAN_TEMP 0x545
 #define CAN_ID_NISSAN_FAKE 0x666
 
