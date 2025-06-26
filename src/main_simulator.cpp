@@ -30,7 +30,7 @@ unsigned long arduinoLoopExecutionCount = 0;
    SCHEDULER TASKS
    ====================================================================== */
 
-ptScheduler ptReportArduinoPerformanceStats = ptScheduler(PT_TIME_1MIN);
+ptScheduler ptReportArduinoPerformanceStats = ptScheduler(PT_TIME_10S);
 
 /* ======================================================================
    SETUP
@@ -57,9 +57,9 @@ void loop() {
 
   // Increment loop counter and report on performance stats if needed
   if (debugPerformance && millis() > 10000) {
-    arduinoLoopExecutionCount++;
     if (ptReportArduinoPerformanceStats.call()) {
       reportArduinoLoopRate(&arduinoLoopExecutionCount);
     }
   }
+  arduinoLoopExecutionCount++;
 }

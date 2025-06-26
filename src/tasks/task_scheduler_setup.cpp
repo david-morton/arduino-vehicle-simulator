@@ -5,12 +5,12 @@
 #include "../io/speed_simulator.h"
 
 // Define actual scheduler task instances
-ptScheduler taskBmwWheel(100000);    // 100 ms
-ptScheduler taskBmwNoise(50000);     // 50 ms
-ptScheduler taskNissanTemp(200000);  // 200 ms
-ptScheduler taskNissanNoise(50000);  // 50 ms
-ptScheduler rpmAnalogTask(100000);   // 10Hz
-ptScheduler speedAnalogTask(100000); // 10Hz
+ptScheduler taskBmwWheel(PT_TIME_20MS);
+ptScheduler taskBmwNoise(PT_TIME_50MS);
+ptScheduler taskNissanTemp(PT_TIME_100MS);
+ptScheduler taskNissanNoise(PT_TIME_50MS);
+ptScheduler rpmAnalogTask(PT_TIME_100MS);
+ptScheduler speedAnalogTask(PT_TIME_100MS);
 
 void runAllScheduledTasks() {
   if (taskBmwWheel.call())

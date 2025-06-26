@@ -11,6 +11,7 @@
 
 mcp2515_can CAN_BMW(CS_PIN_BMW);
 
+// Initializes the BMW CAN simulator by setting up the CAN bus at 500 kbps.
 void setupCanSimBmw() {
   if (CAN_BMW.begin(CAN_500KBPS) == CAN_OK) {
     DEBUG_GENERAL("[CAN_BMW] Init OK");
@@ -19,22 +20,22 @@ void setupCanSimBmw() {
   }
 }
 
+// Send simulated BMW wheel speed data over CAN.
 void sendCanBmwWheelSpeed() {
   byte data[8];
   int  speedKph = getSimulatedVehicleSpeed();
-  int  speedRaw = speedKph * 20; // Assuming 0.05 km/h resolution like OEM
+  int  rawSpeed = speedKph * 16; // Match receiver's decoding scale
 
-  data[0] = highByte(speedRaw);
-  data[1] = lowByte(speedRaw);
-
-  uint16_t speed = speedKph * 10;
   for (int i = 0; i < 4; i++) {
-    data[i * 2 + 0] = highByte(speed);
-    data[i * 2 + 1] = lowByte(speed);
+    data[i * 2]     = rawSpeed & 0xFF;        // Lower 8 bits
+    data[i * 2 + 1] = (rawSpeed >> 8) & 0x0F; // Upper 4 bits in low nibble
   }
+
   CAN_BMW.sendMsgBuf(CAN_ID_BMW_WHEEL_SPEED, 0, 8, data);
+  DEBUG_CAN_SEND("Wheel speed sent: %d kph", speedKph);
 }
 
+// Send fake noise data over BMW CAN bus.
 void sendCanBmwFakeNoise() {
   byte data[8];
   for (int i = 0; i < 8; i++)
