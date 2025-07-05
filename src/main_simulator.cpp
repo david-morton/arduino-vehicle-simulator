@@ -15,8 +15,8 @@
 
 bool debugError       = true;
 bool debugGeneral     = true;
-bool debugCanSend     = true;
-bool debugCanReceive  = true;
+bool debugCanSend     = false;
+bool debugCanReceive  = false;
 bool debugSensors     = true;
 bool debugPerformance = true;
 

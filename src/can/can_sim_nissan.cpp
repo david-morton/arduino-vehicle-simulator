@@ -5,7 +5,7 @@
 #include "can_sim_nissan.h"
 #include "debug_logging.h"
 
-#define CAN_ID_NISSAN_TEMP 0x545
+#define CAN_ID_NISSAN_TEMP 0x551
 #define CAN_ID_NISSAN_FAKE 0x666
 
 mcp2515_can CAN_NISSAN(CS_PIN_NISSAN);
