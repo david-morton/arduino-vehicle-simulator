@@ -14,10 +14,10 @@
    ====================================================================== */
 
 bool debugError       = true;
-bool debugGeneral     = true;
+bool debugGeneral     = false;
 bool debugCanSend     = false;
 bool debugCanReceive  = false;
-bool debugSensors     = true;
+bool debugSensors     = false;
 bool debugPerformance = true;
 
 /* ======================================================================

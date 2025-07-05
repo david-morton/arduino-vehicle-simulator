@@ -19,11 +19,11 @@ void setupCanSimNissan() {
 }
 
 void sendCanNissanEngineTemp() {
-  byte     data[2];
-  uint16_t temp = random(70, 110) * 10;
-  data[0]       = highByte(temp);
-  data[1]       = lowByte(temp);
-  CAN_NISSAN.sendMsgBuf(CAN_ID_NISSAN_TEMP, 0, 2, data);
+  unsigned char data[8];
+  uint16_t      temp = random(70, 105);
+  data[0]            = temp + 40;
+  CAN_NISSAN.sendMsgBuf(CAN_ID_NISSAN_TEMP, 0, 8, data);
+  DEBUG_CAN_SEND("Engine temp sent: %d C", temp - 40);
 }
 
 void sendCanNissanFakeNoise() {
