@@ -18,7 +18,7 @@ bool debugGeneral     = false;
 bool debugCanSend     = false;
 bool debugCanReceive  = false;
 bool debugSensors     = false;
-bool debugPerformance = true;
+bool debugPerformance = false;
 
 /* ======================================================================
    VARIABLES: General use / functional
@@ -30,7 +30,7 @@ unsigned long arduinoLoopExecutionCount = 0;
    SCHEDULER TASKS
    ====================================================================== */
 
-ptScheduler ptReportArduinoPerformanceStats = ptScheduler(PT_TIME_10S);
+ptScheduler ptReportArduinoPerformanceStats = ptScheduler(PT_TIME_1MIN);
 
 /* ======================================================================
    SETUP

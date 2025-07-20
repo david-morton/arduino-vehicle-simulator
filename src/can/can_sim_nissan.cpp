@@ -20,7 +20,7 @@ void setupCanSimNissan() {
 
 void sendCanNissanEngineTemp() {
   unsigned char data[8];
-  uint16_t      temp = random(70, 105);
+  uint16_t      temp = random(81, 105);
   data[0]            = temp + 40;
   CAN_NISSAN.sendMsgBuf(CAN_ID_NISSAN_TEMP, 0, 8, data);
   DEBUG_CAN_SEND("Engine temp sent: %d C", temp - 40);
